@@ -6,7 +6,7 @@ import com.java.model.CreditCard;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-public interface IServiceReprository  {
+public interface ICreditCardService {
 
     /**
      * @param request HttpServletRrquest

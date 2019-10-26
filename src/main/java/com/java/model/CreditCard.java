@@ -2,7 +2,7 @@ package com.java.model;
 
 public class CreditCard {
     private int id;
-    private int cardNumber;
+    private long cardNumber;
     private String cardName;
     private String cardType;
     private int year;
@@ -30,11 +30,11 @@ public class CreditCard {
         this.id = id;
     }
 
-    public int getCardNumber() {
+    public long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
 

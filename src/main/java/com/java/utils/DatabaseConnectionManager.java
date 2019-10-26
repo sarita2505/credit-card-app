@@ -57,6 +57,7 @@ public class DatabaseConnectionManager {
 
         try {
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            con.setAutoCommit(false);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -1,46 +1,54 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <listener>
-    <listener-class>com.java.listener.AppContextListener</listener-class>
-  </listener>
+    <display-name>Archetype Created Web Application</display-name>
+    <listener>
+        <listener-class>com.java.listener.AppContextListener</listener-class>
+    </listener>
 
 
-  <servlet>
-    <servlet-name>employeeServlet</servlet-name>
-    <servlet-class>com.java.servlet.EmployeeServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>studentServlet</servlet-name>
-    <servlet-class>com.java.servlet.StudentServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>tripServlet</servlet-name>
-    <servlet-class>com.java.servlet.TripServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>orderServlet</servlet-name>
-    <servlet-class>com.java.servlet.OrderServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>employeeServlet</servlet-name>
-    <url-pattern>/employees</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>employeeServlet</servlet-name>
+        <servlet-class>com.java.servlet.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>studentServlet</servlet-name>
+        <servlet-class>com.java.servlet.StudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tripServlet</servlet-name>
+        <servlet-class>com.java.servlet.TripServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>orderServlet</servlet-name>
+        <servlet-class>com.java.servlet.OrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>creditCardServlet</servlet-name>
+        <servlet-class>com.java.servlet.CreditCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>creditCardServlet</servlet-name>
+        <url-pattern>/credit-card</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>employeeServlet</servlet-name>
+        <url-pattern>/employees</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>studentServlet</servlet-name>
-    <url-pattern>/students</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>tripServlet</servlet-name>
-    <url-pattern>/trips</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>orderServlet</servlet-name>
-    <url-pattern>/orders</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>studentServlet</servlet-name>
+        <url-pattern>/students</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tripServlet</servlet-name>
+        <url-pattern>/trips</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>orderServlet</servlet-name>
+        <url-pattern>/orders</url-pattern>
+    </servlet-mapping>
 
 </web-app>

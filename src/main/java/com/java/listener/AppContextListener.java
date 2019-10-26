@@ -1,6 +1,7 @@
 package com.java.listener;
 
 import com.java.context.AppContext;
+import com.java.utils.DatabaseConnection;
 import com.java.utils.DatabaseConnectionManager;
 
 import javax.servlet.ServletContextEvent;
@@ -21,6 +22,8 @@ public class AppContextListener implements ServletContextListener {
 
         Connection con = DatabaseConnectionManager.getConnection();
         DatabaseConnectionManager.close(con);
+        //Connection connection= DatabaseConnection.establishConnection();
+
     }
 
     @Override
