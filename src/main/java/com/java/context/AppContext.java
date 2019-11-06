@@ -1,9 +1,6 @@
 package com.java.context;
 
-import com.java.model.Employee;
-import com.java.model.Order;
-import com.java.model.Student;
-import com.java.model.Trip;
+import com.java.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +11,7 @@ public class AppContext {
     public static final List<Student> STUDENT_LIST= new ArrayList<>();
     public static final List<Trip> TRIP_LIST=new ArrayList<>();
     public static final List<Order> ORDER_LIST=new ArrayList<>();
+    public static final List<Book> BOOK_LIST=new ArrayList<>();
     static {
 
         Student s1=new Student(1,"harihar");
@@ -38,5 +36,11 @@ public class AppContext {
         Order o2=new Order(2,"cooler");
         ORDER_LIST.add(o1);
         ORDER_LIST.add(o2);
+    }
+    static {
+        Book b1=new Book(1,"java","james gosling","jg",5);
+        Book b2=new Book(2,"c","Denish riche ","dr",5);
+        BOOK_LIST.add(b1);
+        BOOK_LIST.add(b2);
     }
 }

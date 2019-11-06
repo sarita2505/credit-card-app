@@ -29,6 +29,14 @@
         <servlet-name>creditCardServlet</servlet-name>
         <servlet-class>com.java.servlet.CreditCardServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bookServlet</servlet-name>
+        <servlet-class>com.java.servlet.BookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bookServlet</servlet-name>
+        <url-pattern>/book</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>creditCardServlet</servlet-name>
         <url-pattern>/credit-card</url-pattern>

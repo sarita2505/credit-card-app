@@ -36,6 +36,14 @@ public class DatabaseConnectionManager {
     }
 
 
+    public static void rollbackTransaction(Connection con)
+    {
+        try {
+            con.rollback();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static void close(Connection con) {
         LOGGER.info("closing the connection");
         try {

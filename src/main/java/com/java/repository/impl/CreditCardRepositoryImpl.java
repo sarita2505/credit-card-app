@@ -1,7 +1,9 @@
 package com.java.repository.impl;
 
 import com.java.model.CreditCard;
+import com.java.repository.CreditCardRowMapper;
 import com.java.repository.ICreditCardRepository;
+import com.java.repository.IRowMapper;
 import com.java.utils.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -16,49 +18,59 @@ public class CreditCardRepositoryImpl implements ICreditCardRepository {
         String query = "INSERT INTO CREDIT_CARD(ID,CARD_NAME,CVV,YEAR,MONTH,CARD_NUMBER,CARD_TYPE) VALUES(CREDIT_CARD_ID_SEQ.NEXTVAL,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query, new String[]{"ID"});
         ps.setString(1, creditCard.getCardName());
-        ps.setInt(2,creditCard.getCvv());
-        ps.setInt(3,creditCard.getYear());
-        ps.setInt(4,creditCard.getMonth());
+        ps.setInt(2, creditCard.getCvv());
+        ps.setInt(3, creditCard.getYear());
+        ps.setInt(4, creditCard.getMonth());
         ps.setLong(5, creditCard.getCardNumber());
-        ps.setString(6,creditCard.getCardType());
+        ps.setString(6, creditCard.getCardType());
         int recordId = 0;
-        try {
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                ResultSet resultSet = ps.getGeneratedKeys();
-                if (resultSet != null && resultSet.next()) {
-                    recordId = (int) resultSet.getLong(1);
-                }
+         int rowsInserted = ps.executeUpdate();
+        if (rowsInserted > 0) {
+            ResultSet resultSet = ps.getGeneratedKeys();
+            if (resultSet != null && resultSet.next()) {
+                recordId = (int) resultSet.getLong(1);
             }
-            con.commit();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            con.rollback();
-            throw e;
-        } finally {
-            DatabaseConnectionManager.close(con);
         }
-
         return recordId;
     }
 
     @Override
     public int update(Connection con, CreditCard creditCard) throws SQLException {
-        return 0;
+        String query = "update  credit_card set card_name=? where id=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, creditCard.getCardName());
+        ps.setLong(2, creditCard.getId());
+        int rowsUpdated = ps.executeUpdate();
+        return rowsUpdated;
     }
 
     @Override
     public int delete(Connection con, int id) throws SQLException {
-        return 0;
+        String query = "delete from  credit_card  where id=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setLong(1, id);
+        int rowsDeleted = ps.executeUpdate();
+        return rowsDeleted;
     }
 
     @Override
     public CreditCard selectById(Connection con, int id) throws SQLException {
-        return null;
+        String query = "select * from credit_card where id=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setLong(1, id);
+        ResultSet rs = ps.executeQuery();
+        IRowMapper<CreditCard> rowMapper = new CreditCardRowMapper();
+        List<CreditCard> list = rowMapper.mapRow(rs);
+        return list.size() > 0 ? list.get(0) : null;
     }
 
     @Override
     public List<CreditCard> selectAll(Connection con) throws SQLException {
-        return null;
+        String query = "select * from credit_card";
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        IRowMapper<CreditCard> rowMapper = new CreditCardRowMapper();
+        List<CreditCard> list = rowMapper.mapRow(rs);
+        return list;
     }
 }

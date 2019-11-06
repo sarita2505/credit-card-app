@@ -5,6 +5,7 @@ import com.java.model.CreditCard;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 public interface ICreditCardService {
 
@@ -33,12 +34,12 @@ public interface ICreditCardService {
      * @param request HttpRequest
      * @return number of rows selected
      */
-    int selectAll(HttpServletRequest request);
+    List<CreditCard> selectAll(HttpServletRequest request);
 
     /**
      * @param request HttpRequest
      * @param id of the data that you want to select
      * @return the selected data of the id
      */
-    int selectById(HttpServletRequest request,int id);
+    CreditCard selectById(HttpServletRequest request,int id);
 }
